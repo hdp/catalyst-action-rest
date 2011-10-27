@@ -13,7 +13,7 @@ my $t = Test::Rest->new('content_type' => 'text/xml');
 my $has_serializer = eval "require XML::Simple";
 SKIP: {
     skip "XML::Simple not available", 4, unless $has_serializer;
-    
+
     my $xs = XML::Simple->new('ForceArray' => 0);
 
     my $monkey_template = {

@@ -1,7 +1,7 @@
-* Override setup_classes from Catalyst::Base, so things that use 
+* Override setup_classes from Catalyst::Base, so things that use
   C::Controller:REST don't need to have ActionClass('REST') on them
 
-* More documentation of the Serialization/Deserialization process. 
+* More documentation of the Serialization/Deserialization process.
 
 * More Serializers!
 

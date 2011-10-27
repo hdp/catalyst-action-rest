@@ -15,9 +15,9 @@ use Params::Validate qw(:all);
 
 sub new {
     my $self = shift;
-    my %p    = validate( @_, { 
-            content_type => { type => SCALAR }, 
-        }, 
+    my %p    = validate( @_, {
+            content_type => { type => SCALAR },
+        },
     );
     my $ref  = {
         'ua'           => LWP::UserAgent->new,
