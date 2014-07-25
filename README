@@ -14,11 +14,11 @@ SYNOPSIS
         # Answer GET requests to "thing"
         sub thing_GET {
            my ( $self, $c ) = @_;
-     
+
            # Return a 200 OK, with the data in entity
-           # serialized in the body 
+           # serialized in the body
            $self->status_ok(
-                $c, 
+                $c,
                 entity => {
                     some => 'data',
                     foo  => 'is real bar-y',
@@ -27,7 +27,7 @@ SYNOPSIS
         }
 
         # Answer PUT requests to "thing"
-        sub thing_PUT { 
+        sub thing_PUT {
           .. some action ..
         }
 
@@ -69,7 +69,7 @@ DESCRIPTION
 
     To make your Controller RESTful, simply have it
 
-      use base 'Catalyst::Controller::REST'; 
+      use base 'Catalyst::Controller::REST';
 
 SERIALIZATION
     Catalyst::Controller::REST will automatically serialize your responses,
@@ -144,7 +144,7 @@ AVAILABLE SERIALIZERS
 
               'text/html' => [ 'View', 'TT' ],
               'text/xml'  => [ 'View', 'XML' ],
-        
+
       Will do the trick nicely.
 
     By default, Catalyst::Controller::REST will return a "415 Unsupported
@@ -183,7 +183,7 @@ STATUS HELPERS
         Example:
 
           $self->status_ok(
-            $c, 
+            $c,
             entity => {
                 radiohead => "Is a good band!",
             }
@@ -196,7 +196,7 @@ STATUS HELPERS
         Example:
 
           $self->status_created(
-            $c, 
+            $c,
             location => $c->req->uri->as_string,
             entity => {
                 radiohead => "Is a good band!",
@@ -212,7 +212,7 @@ STATUS HELPERS
         Example:
 
           $self->status_accepted(
-            $c, 
+            $c,
             entity => {
                 status => "queued",
             }
@@ -226,7 +226,7 @@ STATUS HELPERS
         Example:
 
           $self->status_bad_request(
-            $c, 
+            $c,
             message => "Cannot do what you have asked!",
           );
 
@@ -238,7 +238,7 @@ STATUS HELPERS
         Example:
 
           $self->status_not_found(
-            $c, 
+            $c,
             message => "Cannot find what you were looking for!",
           );
 
@@ -266,9 +266,9 @@ IMPLEMENTATION DETAILS
                     'text/x-data-dumper' => [ 'Data::Serializer', 'Data::Dumper' ],
                     'text/x-data-denter' => [ 'Data::Serializer', 'Data::Denter' ],
                     'text/x-data-taxi'   => [ 'Data::Serializer', 'Data::Taxi'   ],
-                    'application/x-storable'    => [ 'Data::Serializer', 'Storable'     
+                    'application/x-storable'    => [ 'Data::Serializer', 'Storable'
         ],
-                    'application/x-freezethaw'  => [ 'Data::Serializer', 'FreezeThaw'   
+                    'application/x-freezethaw'  => [ 'Data::Serializer', 'FreezeThaw'
         ],
                     'text/x-config-general' => [ 'Data::Serializer', 'Config::General' ]
         ,
@@ -292,14 +292,14 @@ IMPLEMENTATION DETAILS
           sub begin :Private {
             my ($self, $c) = @_;
             ... do things before Deserializing ...
-            $self->NEXT::begin($c); 
+            $self->NEXT::begin($c);
             ... do things after Deserializing ...
-          } 
+          }
 
           sub end :Private {
             my ($self, $c) = @_;
             ... do things before Serializing ...
-            $self->NEXT::end($c); 
+            $self->NEXT::end($c);
             ... do things after Serializing ...
           }
 

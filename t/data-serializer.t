@@ -8,7 +8,7 @@ use Test::Rest;
 
 use_ok 'Catalyst::Test', 'Test::Serialize';
 
-my %ctypes =( 
+my %ctypes =(
             'text/x-data-dumper' =>   'Data::Dumper' ,
             'text/x-data-denter' =>   'Data::Denter' ,
             'text/x-data-taxi'   =>   'Data::Taxi'   ,
@@ -27,7 +27,7 @@ foreach my $content_type (keys(%ctypes)) {
     $loadclass =~ s/::/\//g;
     $loadclass .= '.pm';
     eval {
-       require $loadclass 
+       require $loadclass
     };
     if ($@) {
         $skip = 1;

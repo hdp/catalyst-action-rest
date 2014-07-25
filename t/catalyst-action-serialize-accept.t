@@ -7,13 +7,13 @@ use FindBin;
 use lib ("$FindBin::Bin/lib", "$FindBin::Bin/../lib", "$FindBin::Bin/broken");
 use Test::Rest;
 
-# Should use Data::Dumper, via YAML 
+# Should use Data::Dumper, via YAML
 my $t = Test::Rest->new('content_type' => 'text/x-yaml');
 
 use_ok 'Catalyst::Test', 'Test::Catalyst::Action::REST';
 
 my $data = <<EOH;
---- 
+---
 lou: is my cat
 EOH
 
@@ -24,9 +24,9 @@ EOH
 	my $res = request($req);
     SKIP: {
         skip "can't test text/x-yaml without YAML support",
-        3 if ( 
-                not $res->is_success and 
-                $res->content =~ m#Content-Type text/x-yaml is not supported# 
+        3 if (
+                not $res->is_success and
+                $res->content =~ m#Content-Type text/x-yaml is not supported#
              );
 	    ok( $res->is_success, 'GET the serialized request succeeded' );
 	    is( $res->content, $data, "Request returned proper data");

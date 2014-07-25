@@ -11,7 +11,7 @@ sub execute {
     my $stash_key = (
             $controller->{'serialize'} ?
                 $controller->{'serialize'}->{'stash_key'} :
-                $controller->{'stash_key'} 
+                $controller->{'stash_key'}
         ) || 'rest';
 
     if ( !$c->view($view) ) {

@@ -64,7 +64,7 @@ returned the deserialized data structure.
 
 __PACKAGE__->mk_accessors(qw(data accept_only));
 
-=over 4 
+=over 4
 
 =item accepted_content_types
 

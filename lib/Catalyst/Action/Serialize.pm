@@ -107,7 +107,7 @@ Takes a hashref, mapping Content-Types to a given serializer plugin.
 This is the 'fall-back' Content-Type if none of the requested or acceptable
 types is found in the L</map>. It must be an entry in the L</map>.
 
-=head2 stash_key 
+=head2 stash_key
 
 Specifies the key of the stash entry holding the data that is to be serialized.
 So if the value is "rest", we will serialize the data under:
@@ -127,7 +127,7 @@ perhaps for debugging.
 
 Daisuke Maki pointed out that early versions of this Action did not play
 well with others, or generally behave in a way that was very consistent
-with the rest of Catalyst. 
+with the rest of Catalyst.
 
 =head1 SEE ALSO
 

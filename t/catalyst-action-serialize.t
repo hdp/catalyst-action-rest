@@ -7,7 +7,7 @@ use FindBin;
 use lib ("$FindBin::Bin/lib", "$FindBin::Bin/../lib", "$FindBin::Bin/broken");
 use Test::Rest;
 
-# Should use Data::Dumper, via YAML 
+# Should use Data::Dumper, via YAML
 my $t = Test::Rest->new('content_type' => 'text/x-data-dumper');
 
 use_ok 'Catalyst::Test', 'Test::Catalyst::Action::REST';
